@@ -1,0 +1,2 @@
+class AnonymizedFile < ApplicationRecord
+end

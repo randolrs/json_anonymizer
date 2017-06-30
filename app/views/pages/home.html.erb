@@ -1,0 +1,49 @@
+
+<div class="full-screen-cover blue-gradient-background">
+
+	<div class="form-container">
+	
+		<div class="login-form">
+
+			<div class="login-form-header">
+				
+				<h2>Login</h2>
+
+			</div>
+
+
+			<div class="login-form-content">
+
+				<h3>Enter Your Login Credentials</h3>
+
+				<%= form_for(:user, :url => session_path(:user)) do |f| %>
+
+					<div class="field">
+				  
+					  <%= f.email_field :email, autofocus: true, placeholder: "Email", :required => true %>
+					</div>
+
+					<div class="field">
+					 
+					  <%= f.password_field :password, autocomplete: "off", placeholder: "Password", required: true, :required => true %>
+					</div>
+
+					<div class="actions">
+					  <%= f.submit "Login", class: "button medium orange-background" %>
+					</div>
+
+				<% end %>
+
+			</div>
+
+			<div class="login-form-action">
+				
+				<%= link_to "Signup", new_user_registration_path %>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

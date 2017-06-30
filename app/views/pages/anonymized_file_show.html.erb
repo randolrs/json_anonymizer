@@ -1,0 +1,27 @@
+
+<div class="content">
+	
+	<%= link_to "Return to Anonymized File Home", index_path %>
+
+	<div class="content-header">
+
+		<h2 class="title">Anonymized File Details</h2>
+
+		<h3>File Name: <%= @anonymized_file['file_name'] %></h3>
+
+	</div>
+
+	<% @anonymized_file['json_data'].each do |entry| %>
+		
+		<div>
+
+			<%= entry %>
+
+		</div>
+
+		<br>
+
+	<%end%>
+
+
+</div>

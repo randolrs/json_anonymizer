@@ -1,0 +1,9 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.blue-gradient-background {
+    background: #005C97;
+    background: -webkit-linear-gradient(to right, #363795, #005C97);
+    background: linear-gradient(to right, #363795, #005C97);
+}

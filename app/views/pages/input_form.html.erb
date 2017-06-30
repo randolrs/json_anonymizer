@@ -1,0 +1,35 @@
+
+<div class="content">
+	
+	<%= link_to "Return to Anonymized File Home", index_path %>
+
+	<div class="content-header">
+
+		<h2 class="title">Upload a JSON File to Anonymize</h2>
+
+	</div>
+
+	<%= form_tag import_file_path, multipart: true, method: 'post' do %>
+		
+		<div class="field">
+
+			<%= label_tag 'name' %>
+
+			<%= text_field_tag 'name', nil, :required => true %>
+
+		</div>
+
+		<div class="field">
+
+			<%= label_tag 'File to be Anonymized' %>
+
+			<%= file_field_tag 'upload_file', :required => true %>
+
+		</div>
+
+
+		<%= submit_tag "Upload and Anonymize File", class: 'button blue-background' %>
+
+	<% end %>
+
+</div>

@@ -1,0 +1,57 @@
+
+<% if flash[:notice] %>
+        
+      <div class="flash-prompt notice">
+
+        <p><%= flash[:notice] %></p>
+
+      </div>
+
+<%end%>
+
+<div style="text-align: right;">
+
+	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+</div>
+
+
+
+<div class="content">
+	
+	<div class="content-header">
+
+		<h2 class="title inline">Anonymized Files</h2>
+
+		<%= link_to '+ Upload & Anonymize a New File', input_form_path, class:'addFile inline align-right button blue-background' %>
+
+	</div>
+
+	<table class="file-table">
+
+		<tr>
+			<th>File Name</th>
+			<th></th>
+		</tr>
+
+		<% @files.each do |file| %>
+		
+			<tr>
+				<td><%= file["file_name"] %></td>
+
+				<td>
+					<% if file["anonymized_file_index"] %>
+						
+						<%= link_to "Show", anonymized_file_show_path(file["anonymized_file_index"]) %>
+
+					<% end %>
+
+				</td>
+
+			</tr>
+
+		<%end%>
+
+	</table>
+
+</div>
