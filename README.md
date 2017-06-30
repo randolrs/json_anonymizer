@@ -1,25 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application anonymizes certain personally identifiable information based on a JSON template.
 
-Things you may want to cover:
+The application handles the upload, anonymization, index, and detailed review of JSON data.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-"# json_anonymizer" 
+Built with Ruby 2.2.4

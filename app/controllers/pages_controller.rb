@@ -12,46 +12,72 @@ class PagesController < ApplicationController
   
   def index
 
-    @files = anonymized_files_array #get array of anonymized JSON files, function in helpers/application_helper.rb
+    if user_signed_in?
+      
+      @files = anonymized_files_array #get array of anonymized JSON files, function in helpers/application_helper.rb
+    
+    else
 
+      #redirect to home if user not signed in
+      flash[:error] = "Login"
+      redirect_to root_path
+
+    end
 
   end
 
 
   def input_form
 
+    unless user_signed_in?
+
+      #redirect to home if user not signed in
+      flash[:error] = "Login"
+      redirect_to root_path
+
+    end
 
   end
 
   def anonymized_file_show
 
-    id = params[:id].to_i
+    if user_signed_in?
+     
+      id = params[:id].to_i
 
-    @files = anonymized_files_array #get array of anonymized JSON files, function in helpers/application_helper.rb
+      @files = anonymized_files_array #get array of anonymized JSON files, function in helpers/application_helper.rb
 
-    @files.each do |file|
+      @files.each do |file|
 
-      file_index = file['anonymized_file_index']
+        file_index = file['anonymized_file_index']
 
-      if file_index
+        if file_index
 
-        if file_index == id
+          if file_index == id
 
-          @anonymized_file = file
+            @anonymized_file = file
 
-        end 
+          end 
+
+        end
+
+        break if @anonymized_file != nil
+
 
       end
 
-      break if @anonymized_file != nil
+      unless @anonymized_file
 
+        flash[:error] = "Cannot locate file."
+        redirect_to index_path
 
-    end
+      end
 
-    unless @anonymized_file
+    else
 
-      flash[:error] = "Cannot locate file."
-      redirect_to index_path
+      #redirect to home if user not signed in
+      flash[:error] = "Login"
+      redirect_to root_path
 
     end
 
@@ -242,7 +268,7 @@ class PagesController < ApplicationController
   	else
 
       #redirect to home if user not signed in
-
+      flash[:error] = "Login"
   		redirect_to root_path
 
   	end
